@@ -10,10 +10,9 @@ jobs:
       - uses: actions/checkout@v1
       - run: |
           echo "Going to download a .zip file of repo...."
-          wget https://github.com/PeterBarczi/automation/archive/refs/heads/main.zip
           wget https://github.com/PeterBarczi/linux/archive/refs/heads/main.zip
           unzip main.zip
-      - run: echo "One last message "
+      - run: echo "Transferring to S3.... "
       - uses: medlypharmacy/s3-artifacts-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
